@@ -1,0 +1,23 @@
+Prepare Ubuntu 20.04 to Install XMRig CPU Miner
+
+sudo -i
+
+apt update
+apt upgrade
+
+apt autoremove
+
+reboot
+
+apt-get install git build-essential cmake automake libtool autoconf
+
+git clone https://github.com/xmrig/xmrig.git
+
+mkdir xmrig/build && cd xmrig/scripts
+
+./build_deps.sh && cd ../build
+
+cmake .. -DXMRIG_DEPS=scripts/deps
+make -j$(nproc)
+
+/root/xmrig/build/./xmrig -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u xmrwalletaddress -p MinerIdentifier:Email -t 1
