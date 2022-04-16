@@ -20,4 +20,8 @@ mkdir xmrig/build && cd xmrig/scripts
 cmake .. -DXMRIG_DEPS=scripts/deps
 make -j$(nproc)
 
+screen -xRR
+
 /root/xmrig/build/./xmrig -a cryptonight -o stratum+tcp://pool.supportxmr.com:3333 -u xmrwalletaddress -p MinerIdentifier:Email -t 1
+
+Ctrl - A, d
